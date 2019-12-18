@@ -1,0 +1,6 @@
+framework module Pods_MySteps_MyStepsUITests {
+  umbrella header "Pods-MySteps-MyStepsUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
