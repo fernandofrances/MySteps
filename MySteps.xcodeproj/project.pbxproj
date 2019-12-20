@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4F9F06CBE55EAEB34188B51D /* Pods_MySteps_MyStepsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B467794D3459783592362C6 /* Pods_MySteps_MyStepsUITests.framework */; };
 		8E5DE3C1B056A8ADF90C529C /* Pods_MyStepsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3DBD4CE4E6999F3FC5111FC /* Pods_MyStepsTests.framework */; };
+		E01736B123AD46B1003C65AB /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01736B023AD46B1003C65AB /* UIColor+Custom.swift */; };
 		E082670A23AA9E0800344007 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082670923AA9E0800344007 /* AppDelegate.swift */; };
 		E082671123AA9E0900344007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E082671023AA9E0900344007 /* Assets.xcassets */; };
 		E082671423AA9E0900344007 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E082671223AA9E0900344007 /* LaunchScreen.storyboard */; };
@@ -16,8 +17,20 @@
 		E082672A23AA9E0A00344007 /* MyStepsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082672923AA9E0A00344007 /* MyStepsUITests.swift */; };
 		E082673823AAA33300344007 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E082673723AAA33300344007 /* HealthKit.framework */; };
 		E082673B23AAA46200344007 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082673A23AAA46200344007 /* HealthKitManager.swift */; };
-		E082673E23AAA8DA00344007 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082673C23AAA8DA00344007 /* MainViewController.swift */; };
-		E082673F23AAA8DA00344007 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E082673D23AAA8DA00344007 /* MainViewController.xib */; };
+		E082673E23AAA8DA00344007 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082673C23AAA8DA00344007 /* HomeViewController.swift */; };
+		E082673F23AAA8DA00344007 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E082673D23AAA8DA00344007 /* HomeViewController.xib */; };
+		E082674423AAB4B500344007 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082674323AAB4B500344007 /* NibLoadableView.swift */; };
+		E082674623AAB88100344007 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082674523AAB88100344007 /* HeaderView.swift */; };
+		E082674823AAB88B00344007 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E082674723AAB88B00344007 /* HeaderView.xib */; };
+		E082674A23AAB8A200344007 /* StepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082674923AAB8A200344007 /* StepsView.swift */; };
+		E082674C23AAB8AB00344007 /* StepsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E082674B23AAB8AB00344007 /* StepsView.xib */; };
+		E082674E23AAB8D800344007 /* AchievementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082674D23AAB8D800344007 /* AchievementsView.swift */; };
+		E082675023AAB8E200344007 /* AchievementsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E082674F23AAB8E200344007 /* AchievementsView.xib */; };
+		E082675223AABE6900344007 /* UIImageView+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082675123AABE6900344007 /* UIImageView+Rounded.swift */; };
+		E082675623AAC22600344007 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E082675523AAC22600344007 /* Localizable.strings */; };
+		E082675823AAC2C500344007 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082675723AAC2C500344007 /* LocalizedStrings.swift */; };
+		E082675B23AAE26600344007 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082675A23AAE26600344007 /* Chart.swift */; };
+		E0ED4E1023AC062D00CD23B5 /* Curve.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED4E0F23AC062D00CD23B5 /* Curve.swift */; };
 		F808DC9414FB942925337BA4 /* Pods_MySteps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1521644A2398893F4CEC702E /* Pods_MySteps.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +57,7 @@
 		37D07B3983619608CA03E0C5 /* Pods-MyStepsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyStepsTests.debug.xcconfig"; path = "Target Support Files/Pods-MyStepsTests/Pods-MyStepsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9B467794D3459783592362C6 /* Pods_MySteps_MyStepsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySteps_MyStepsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06F7240308E9DB3AC41A7EC /* Pods-MyStepsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyStepsTests.release.xcconfig"; path = "Target Support Files/Pods-MyStepsTests/Pods-MyStepsTests.release.xcconfig"; sourceTree = "<group>"; };
+		E01736B023AD46B1003C65AB /* UIColor+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
 		E082670623AA9E0800344007 /* MySteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E082670923AA9E0800344007 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E082671023AA9E0900344007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,8 +72,20 @@
 		E082673723AAA33300344007 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		E082673923AAA38200344007 /* MySteps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MySteps.entitlements; sourceTree = "<group>"; };
 		E082673A23AAA46200344007 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
-		E082673C23AAA8DA00344007 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		E082673D23AAA8DA00344007 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		E082673C23AAA8DA00344007 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E082673D23AAA8DA00344007 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		E082674323AAB4B500344007 /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
+		E082674523AAB88100344007 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		E082674723AAB88B00344007 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		E082674923AAB8A200344007 /* StepsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsView.swift; sourceTree = "<group>"; };
+		E082674B23AAB8AB00344007 /* StepsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepsView.xib; sourceTree = "<group>"; };
+		E082674D23AAB8D800344007 /* AchievementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsView.swift; sourceTree = "<group>"; };
+		E082674F23AAB8E200344007 /* AchievementsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchievementsView.xib; sourceTree = "<group>"; };
+		E082675123AABE6900344007 /* UIImageView+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Rounded.swift"; sourceTree = "<group>"; };
+		E082675523AAC22600344007 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		E082675723AAC2C500344007 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		E082675A23AAE26600344007 /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
+		E0ED4E0F23AC062D00CD23B5 /* Curve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curve.swift; sourceTree = "<group>"; };
 		E5C14925EDE0A7A6517C8CBC /* Pods-MySteps-MyStepsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySteps-MyStepsUITests.release.xcconfig"; path = "Target Support Files/Pods-MySteps-MyStepsUITests/Pods-MySteps-MyStepsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E910229DCFD478CC6485A2E8 /* Pods-MySteps-MyStepsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySteps-MyStepsUITests.debug.xcconfig"; path = "Target Support Files/Pods-MySteps-MyStepsUITests/Pods-MySteps-MyStepsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED1EBB286151B5BA149E54BC /* Pods-MySteps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySteps.debug.xcconfig"; path = "Target Support Files/Pods-MySteps/Pods-MySteps.debug.xcconfig"; sourceTree = "<group>"; };
@@ -144,14 +170,14 @@
 		E082670823AA9E0800344007 /* MySteps */ = {
 			isa = PBXGroup;
 			children = (
+				E082675423AAC13500344007 /* Core */,
+				E082675923AAE14E00344007 /* Chart */,
+				E082674223AAB4A900344007 /* Utilities */,
 				E082673923AAA38200344007 /* MySteps.entitlements */,
-				E082670923AA9E0800344007 /* AppDelegate.swift */,
 				E082671023AA9E0900344007 /* Assets.xcassets */,
 				E082671223AA9E0900344007 /* LaunchScreen.storyboard */,
 				E082671523AA9E0900344007 /* Info.plist */,
-				E082673A23AAA46200344007 /* HealthKitManager.swift */,
-				E082673C23AAA8DA00344007 /* MainViewController.swift */,
-				E082673D23AAA8DA00344007 /* MainViewController.xib */,
+				E082675523AAC22600344007 /* Localizable.strings */,
 			);
 			path = MySteps;
 			sourceTree = "<group>";
@@ -172,6 +198,51 @@
 				E082672B23AA9E0A00344007 /* Info.plist */,
 			);
 			path = MyStepsUITests;
+			sourceTree = "<group>";
+		};
+		E082674023AAB45C00344007 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E082673C23AAA8DA00344007 /* HomeViewController.swift */,
+				E082673D23AAA8DA00344007 /* HomeViewController.xib */,
+				E082674523AAB88100344007 /* HeaderView.swift */,
+				E082674723AAB88B00344007 /* HeaderView.xib */,
+				E082674923AAB8A200344007 /* StepsView.swift */,
+				E082674B23AAB8AB00344007 /* StepsView.xib */,
+				E082674D23AAB8D800344007 /* AchievementsView.swift */,
+				E082674F23AAB8E200344007 /* AchievementsView.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E082674223AAB4A900344007 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E082674323AAB4B500344007 /* NibLoadableView.swift */,
+				E082675123AABE6900344007 /* UIImageView+Rounded.swift */,
+				E082675723AAC2C500344007 /* LocalizedStrings.swift */,
+				E01736B023AD46B1003C65AB /* UIColor+Custom.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E082675423AAC13500344007 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E082670923AA9E0800344007 /* AppDelegate.swift */,
+				E082673A23AAA46200344007 /* HealthKitManager.swift */,
+				E082674023AAB45C00344007 /* Home */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E082675923AAE14E00344007 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				E082675A23AAE26600344007 /* Chart.swift */,
+				E0ED4E0F23AC062D00CD23B5 /* Curve.swift */,
+			);
+			path = Chart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,8 +360,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E082671423AA9E0900344007 /* LaunchScreen.storyboard in Resources */,
-				E082673F23AAA8DA00344007 /* MainViewController.xib in Resources */,
+				E082673F23AAA8DA00344007 /* HomeViewController.xib in Resources */,
+				E082674C23AAB8AB00344007 /* StepsView.xib in Resources */,
+				E082675623AAC22600344007 /* Localizable.strings in Resources */,
 				E082671123AA9E0900344007 /* Assets.xcassets in Resources */,
+				E082675023AAB8E200344007 /* AchievementsView.xib in Resources */,
+				E082674823AAB88B00344007 /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,8 +493,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E082673E23AAA8DA00344007 /* MainViewController.swift in Sources */,
+				E082675B23AAE26600344007 /* Chart.swift in Sources */,
+				E082674623AAB88100344007 /* HeaderView.swift in Sources */,
+				E01736B123AD46B1003C65AB /* UIColor+Custom.swift in Sources */,
+				E082674423AAB4B500344007 /* NibLoadableView.swift in Sources */,
+				E082674E23AAB8D800344007 /* AchievementsView.swift in Sources */,
+				E0ED4E1023AC062D00CD23B5 /* Curve.swift in Sources */,
+				E082674A23AAB8A200344007 /* StepsView.swift in Sources */,
+				E082675223AABE6900344007 /* UIImageView+Rounded.swift in Sources */,
+				E082673E23AAA8DA00344007 /* HomeViewController.swift in Sources */,
 				E082673B23AAA46200344007 /* HealthKitManager.swift in Sources */,
+				E082675823AAC2C500344007 /* LocalizedStrings.swift in Sources */,
 				E082670A23AA9E0800344007 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

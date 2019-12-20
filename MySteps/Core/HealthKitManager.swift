@@ -13,6 +13,10 @@ import RxSwift
 class HealthKitManager {
     let healthStore = HKHealthStore()
     
+    lazy var calendar: Calendar = {
+        return Calendar.current
+    }()
+    
     var authorized: Bool {
         return HKHealthStore.isHealthDataAvailable()
     }
@@ -30,5 +34,15 @@ class HealthKitManager {
             return Disposables.create()
         }
     }
+    
+//    public func getSteps(forTheLast days: Int) {
+//        
+//        let endDate = Date()
+//        let startDate = calendar.date(byAdding: .day, value: -days, to: endDate)
+//        
+//        guard let type = HKSampleType.quantityType(forIdentifier: .stepCount) else { return }
+//        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .none)
+//        let query = HKSampleQuery(sampleType: type, predicate: predicate, limit: <#T##Int#>, sortDescriptors: <#T##[NSSortDescriptor]?#>, resultsHandler: <#T##(HKSampleQuery, [HKSample]?, Error?) -> Void#>)
+//    }
     
 }

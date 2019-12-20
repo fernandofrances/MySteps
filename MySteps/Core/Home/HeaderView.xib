@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HeaderView" customModule="MySteps" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="324"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-photo" translatesAutoresizingMaskIntoConstraints="NO" id="LL0-V7-PSP">
+                    <rect key="frame" x="117" y="40" width="180" height="180"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="180" id="BXw-3T-Hxq"/>
+                        <constraint firstAttribute="height" constant="180" id="Dqk-hK-31f"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4YQ-CS-5gc">
+                    <rect key="frame" x="24" y="254" width="366" height="37"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Steps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lq5-Ri-xxr">
+                            <rect key="frame" x="0.0" y="0.0" width="76.5" height="37"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Jc-bL-6zw">
+                            <rect key="frame" x="76.5" y="0.0" width="289.5" height="37"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov 12 - Dec 12 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2W-z8-SLc">
+                    <rect key="frame" x="24" y="291" width="366" height="25"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4YQ-CS-5gc" secondAttribute="trailing" constant="24" id="1CB-ZI-MMi"/>
+                <constraint firstItem="V2W-z8-SLc" firstAttribute="top" secondItem="4YQ-CS-5gc" secondAttribute="bottom" id="2Vr-d8-dSb"/>
+                <constraint firstItem="LL0-V7-PSP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Kvv-0s-qKB"/>
+                <constraint firstItem="4YQ-CS-5gc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="Lto-NJ-rW0"/>
+                <constraint firstAttribute="bottom" secondItem="V2W-z8-SLc" secondAttribute="bottom" constant="8" id="N2Z-gV-1R1"/>
+                <constraint firstAttribute="trailing" secondItem="V2W-z8-SLc" secondAttribute="trailing" constant="24" id="Y9h-Bx-SpK"/>
+                <constraint firstItem="4YQ-CS-5gc" firstAttribute="top" secondItem="LL0-V7-PSP" secondAttribute="bottom" constant="34" id="oYu-lW-4Zn"/>
+                <constraint firstItem="V2W-z8-SLc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="tl0-rY-HLk"/>
+                <constraint firstItem="LL0-V7-PSP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="x2x-72-1J1"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="dateIntervalLabel" destination="V2W-z8-SLc" id="u35-qP-bVJ"/>
+                <outlet property="imageView" destination="LL0-V7-PSP" id="1fZ-tM-EUZ"/>
+                <outlet property="stepCountLabel" destination="5Jc-bL-6zw" id="Ndf-O2-Frh"/>
+                <outlet property="titleLabel" destination="Lq5-Ri-xxr" id="vmf-SE-T82"/>
+            </connections>
+            <point key="canvasLocation" x="47.826086956521742" y="-156.02678571428569"/>
+        </view>
+        <stackView opaque="NO" contentMode="scaleToFill" id="YiL-1J-V4Q">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="110"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <viewLayoutGuide key="safeArea" id="Cn2-id-0OK"/>
+            <point key="canvasLocation" x="-532" y="-88"/>
+        </stackView>
+    </objects>
+    <resources>
+        <image name="profile-photo" width="180" height="180"/>
+    </resources>
+</document>

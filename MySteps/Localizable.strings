@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  MySteps
+
+  Created by Fernando Frances  on 18/12/2019.
+  Copyright © 2019 Fernando Frances . All rights reserved.
+*/
+
+
+"headerTitle" = "Steps";
+"achievementsSectionTitle" = "Achievements";
+"achievementItemTitle" = "Goal achievement";
+
