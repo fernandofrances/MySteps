@@ -40,7 +40,6 @@ class HomePresenter {
         repository.createUserInPersistanceStore(user)
         rxBind()
         configureHeader()
-        //configureDummyChart()
         configureChart()
         configureAchievements()
     }
@@ -65,17 +64,7 @@ class HomePresenter {
                 // Handle error
             }).disposed(by: disposeBag)
     }
-    
-    private func configureDummyChart() {
-        repository.loadDummyStepData()
-        .observeOn(MainScheduler.instance)
-        .subscribe(onNext: { [weak self] pointEntries in
-            guard let `self` = self else { return }
-            self.view?.updateChart(with: pointEntries)
-        }, onError: { error in
-            // Handle error
-        }).disposed(by: disposeBag)
-    }
+
     
     private func configureHeader() {
         view?.title = user.name
