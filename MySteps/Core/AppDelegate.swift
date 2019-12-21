@@ -17,12 +17,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        let mainViewController = HomeViewController(healthManager: HealthKitManager())
-        window?.rootViewController = mainViewController
+        
+        AppearanceManager.configureAppearance()
+        
+        let healthKitManager = HealthKitManager()
+        let user = User(name: "Neil Armstrong", image: "profile-photo", totalSteps: 0)
+        let homePresenter = HomePresenter(healthManager: healthKitManager, user: user)
+        let mainViewController = HomeViewController(presenter: homePresenter)
+        let navigationController = UINavigationController(rootViewController: mainViewController)
+        
+        
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        
         return true
         
     }
+
 
 }
 

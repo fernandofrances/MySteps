@@ -13,10 +13,29 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="StepsView" customModule="MySteps" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="144"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgZ-34-qsC" customClass="Chart" customModule="MySteps" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="144"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="144" id="94W-0b-9ze"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="fgZ-34-qsC" secondAttribute="bottom" id="2mO-Ds-0gj"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fgZ-34-qsC" secondAttribute="trailing" id="e24-9H-IGc"/>
+                <constraint firstItem="fgZ-34-qsC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="imv-2o-pUL"/>
+                <constraint firstItem="fgZ-34-qsC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ntS-Eo-lfG"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="chart" destination="fgZ-34-qsC" id="7op-cd-QYK"/>
+            </connections>
         </view>
     </objects>
 </document>

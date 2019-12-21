@@ -22,11 +22,7 @@ extension PointEntry: Comparable {
     }
 }
 
-class Chart: UIView, NibLoadableView {
-    
-    private enum Constants {
-        static let height: CGFloat = 141
-    }
+class Chart: UIView {
     
     private let dataLayer: CALayer = CALayer()
     private let mainLayer: CALayer = CALayer()
@@ -51,10 +47,6 @@ class Chart: UIView, NibLoadableView {
         didSet {
             self.setNeedsLayout()
         }
-    }
-    
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIViewNoIntrinsicMetric, height: Constants.height)
     }
     
     override init(frame: CGRect) {
@@ -136,17 +128,28 @@ class Chart: UIView, NibLoadableView {
     
     private func drawLables() {
         if let dataEntries = dataEntries {
-            if dataEntries.count < maxNumberOfColumns { maxNumberOfColumns = dataEntries.count }
-            for i in 0..<maxNumberOfColumns {
-                let textLayer = CATextLayer()
-                textLayer.frame = CGRect(x: columnSpace*CGFloat(i) + 24, y: mainLayer.frame.size.height - bottomSpace/2 - 4, width: columnSpace, height: 16)
-                textLayer.foregroundColor = UIColor.chartTextColor.cgColor
-                textLayer.backgroundColor = UIColor.clear.cgColor
-                textLayer.contentsScale = UIScreen.main.scale
-                textLayer.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0).fontName as CFString, 0, nil)
-                textLayer.fontSize = 11
-                textLayer.string = dataEntries[i].label
-                mainLayer.addSublayer(textLayer)
+            maxNumberOfColumns = dataEntries.count < maxNumberOfColumns ? dataEntries.count : maxNumberOfColumns
+            if maxNumberOfColumns > 0 {
+                let indexGap = dataEntries.count / maxNumberOfColumns
+                var i = 0
+                var n = 0
+                while (n < maxNumberOfColumns && i <= dataEntries.count) {
+                    let textLayer = CATextLayer()
+                    textLayer.frame = CGRect(x: columnSpace*CGFloat(n) + 24, y: mainLayer.frame.size.height - bottomSpace/2 - 4, width: columnSpace, height: 16)
+                    textLayer.foregroundColor = UIColor.chartTextColor.cgColor
+                    textLayer.backgroundColor = UIColor.clear.cgColor
+                    textLayer.contentsScale = UIScreen.main.scale
+                    textLayer.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0).fontName as CFString, 0, nil)
+                    textLayer.fontSize = 11
+                    textLayer.string = dataEntries[i].label
+                    mainLayer.addSublayer(textLayer)
+                    n += 1
+                    if i > 0 {
+                        i += indexGap + 1
+                    } else {
+                        i += indexGap
+                    }
+                }
             }
         }
     }
@@ -178,7 +181,7 @@ class Chart: UIView, NibLoadableView {
                 
                 gridLayer.addSublayer(lineLayer)
                 
-                var minMaxGap:CGFloat = 0
+                var minMaxGap: CGFloat = 0
                 var lineValue:Int = 0
                 if let max = dataEntries.max()?.value,
                     let min = dataEntries.min()?.value {
@@ -186,7 +189,12 @@ class Chart: UIView, NibLoadableView {
                     lineValue = Int((1-value) * minMaxGap) + Int(min)
                 }
                 
-                let rounded = Int(round(Double(lineValue/1000)) * 1000)
+                var rounded: Int = 0
+                if minMaxGap < 4000 {
+                    rounded = Int(round(Double(lineValue/100)) * 100)
+                } else {
+                    rounded = Int(round(Double(lineValue/1000)) * 1000)
+                }
                 
                 let textLayer = CATextLayer()
                 textLayer.foregroundColor = UIColor.chartTextColor.cgColor

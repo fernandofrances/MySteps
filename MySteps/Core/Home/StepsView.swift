@@ -8,14 +8,12 @@
 
 import UIKit
 
-class StepsView: UIView {
+final class StepsView: UIView, NibLoadableView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBOutlet weak var chart: Chart!
+    
+    func configure(with dataPoints: [PointEntry]) {
+        chart.dataEntries = dataPoints
     }
-    */
-
+    
 }

@@ -10,6 +10,12 @@
 		4F9F06CBE55EAEB34188B51D /* Pods_MySteps_MyStepsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B467794D3459783592362C6 /* Pods_MySteps_MyStepsUITests.framework */; };
 		8E5DE3C1B056A8ADF90C529C /* Pods_MyStepsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3DBD4CE4E6999F3FC5111FC /* Pods_MyStepsTests.framework */; };
 		E01736B123AD46B1003C65AB /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01736B023AD46B1003C65AB /* UIColor+Custom.swift */; };
+		E01736B323AD5F7A003C65AB /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01736B223AD5F7A003C65AB /* HomePresenter.swift */; };
+		E01736B623AD5FD5003C65AB /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01736B523AD5FD5003C65AB /* Achievement.swift */; };
+		E01736B823AD60D7003C65AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01736B723AD60D7003C65AB /* User.swift */; };
+		E01736BA23AD6CD4003C65AB /* Date+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01736B923AD6CD4003C65AB /* Date+Calendar.swift */; };
+		E01736BC23AE7BD2003C65AB /* DateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01736BB23AE7BD2003C65AB /* DateInterval.swift */; };
+		E01736BE23AE7BFF003C65AB /* StepsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01736BD23AE7BFF003C65AB /* StepsData.swift */; };
 		E082670A23AA9E0800344007 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082670923AA9E0800344007 /* AppDelegate.swift */; };
 		E082671123AA9E0900344007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E082671023AA9E0900344007 /* Assets.xcassets */; };
 		E082671423AA9E0900344007 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E082671223AA9E0900344007 /* LaunchScreen.storyboard */; };
@@ -30,6 +36,7 @@
 		E082675623AAC22600344007 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E082675523AAC22600344007 /* Localizable.strings */; };
 		E082675823AAC2C500344007 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082675723AAC2C500344007 /* LocalizedStrings.swift */; };
 		E082675B23AAE26600344007 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082675A23AAE26600344007 /* Chart.swift */; };
+		E0D0E54223AE93580040A82A /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D0E54123AE93580040A82A /* AppearanceManager.swift */; };
 		E0ED4E1023AC062D00CD23B5 /* Curve.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED4E0F23AC062D00CD23B5 /* Curve.swift */; };
 		F808DC9414FB942925337BA4 /* Pods_MySteps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1521644A2398893F4CEC702E /* Pods_MySteps.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +65,12 @@
 		9B467794D3459783592362C6 /* Pods_MySteps_MyStepsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySteps_MyStepsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06F7240308E9DB3AC41A7EC /* Pods-MyStepsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyStepsTests.release.xcconfig"; path = "Target Support Files/Pods-MyStepsTests/Pods-MyStepsTests.release.xcconfig"; sourceTree = "<group>"; };
 		E01736B023AD46B1003C65AB /* UIColor+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
+		E01736B223AD5F7A003C65AB /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		E01736B523AD5FD5003C65AB /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
+		E01736B723AD60D7003C65AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E01736B923AD6CD4003C65AB /* Date+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Calendar.swift"; sourceTree = "<group>"; };
+		E01736BB23AE7BD2003C65AB /* DateInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInterval.swift; sourceTree = "<group>"; };
+		E01736BD23AE7BFF003C65AB /* StepsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsData.swift; sourceTree = "<group>"; };
 		E082670623AA9E0800344007 /* MySteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E082670923AA9E0800344007 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E082671023AA9E0900344007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -85,6 +98,7 @@
 		E082675523AAC22600344007 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		E082675723AAC2C500344007 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		E082675A23AAE26600344007 /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
+		E0D0E54123AE93580040A82A /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		E0ED4E0F23AC062D00CD23B5 /* Curve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curve.swift; sourceTree = "<group>"; };
 		E5C14925EDE0A7A6517C8CBC /* Pods-MySteps-MyStepsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySteps-MyStepsUITests.release.xcconfig"; path = "Target Support Files/Pods-MySteps-MyStepsUITests/Pods-MySteps-MyStepsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E910229DCFD478CC6485A2E8 /* Pods-MySteps-MyStepsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySteps-MyStepsUITests.debug.xcconfig"; path = "Target Support Files/Pods-MySteps-MyStepsUITests/Pods-MySteps-MyStepsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +157,17 @@
 				F3DBD4CE4E6999F3FC5111FC /* Pods_MyStepsTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E01736B423AD5FC9003C65AB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E01736B523AD5FD5003C65AB /* Achievement.swift */,
+				E01736B723AD60D7003C65AB /* User.swift */,
+				E01736BB23AE7BD2003C65AB /* DateInterval.swift */,
+				E01736BD23AE7BFF003C65AB /* StepsData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E08266FD23AA9E0800344007 = {
@@ -211,6 +236,7 @@
 				E082674B23AAB8AB00344007 /* StepsView.xib */,
 				E082674D23AAB8D800344007 /* AchievementsView.swift */,
 				E082674F23AAB8E200344007 /* AchievementsView.xib */,
+				E01736B223AD5F7A003C65AB /* HomePresenter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -222,6 +248,7 @@
 				E082675123AABE6900344007 /* UIImageView+Rounded.swift */,
 				E082675723AAC2C500344007 /* LocalizedStrings.swift */,
 				E01736B023AD46B1003C65AB /* UIColor+Custom.swift */,
+				E01736B923AD6CD4003C65AB /* Date+Calendar.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -231,6 +258,8 @@
 			children = (
 				E082670923AA9E0800344007 /* AppDelegate.swift */,
 				E082673A23AAA46200344007 /* HealthKitManager.swift */,
+				E0D0E54123AE93580040A82A /* AppearanceManager.swift */,
+				E01736B423AD5FC9003C65AB /* Model */,
 				E082674023AAB45C00344007 /* Home */,
 			);
 			path = Core;
@@ -494,14 +523,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				E082675B23AAE26600344007 /* Chart.swift in Sources */,
+				E0D0E54223AE93580040A82A /* AppearanceManager.swift in Sources */,
+				E01736BC23AE7BD2003C65AB /* DateInterval.swift in Sources */,
+				E01736BA23AD6CD4003C65AB /* Date+Calendar.swift in Sources */,
 				E082674623AAB88100344007 /* HeaderView.swift in Sources */,
 				E01736B123AD46B1003C65AB /* UIColor+Custom.swift in Sources */,
 				E082674423AAB4B500344007 /* NibLoadableView.swift in Sources */,
 				E082674E23AAB8D800344007 /* AchievementsView.swift in Sources */,
+				E01736BE23AE7BFF003C65AB /* StepsData.swift in Sources */,
 				E0ED4E1023AC062D00CD23B5 /* Curve.swift in Sources */,
 				E082674A23AAB8A200344007 /* StepsView.swift in Sources */,
 				E082675223AABE6900344007 /* UIImageView+Rounded.swift in Sources */,
+				E01736B823AD60D7003C65AB /* User.swift in Sources */,
 				E082673E23AAA8DA00344007 /* HomeViewController.swift in Sources */,
+				E01736B623AD5FD5003C65AB /* Achievement.swift in Sources */,
+				E01736B323AD5F7A003C65AB /* HomePresenter.swift in Sources */,
 				E082673B23AAA46200344007 /* HealthKitManager.swift in Sources */,
 				E082675823AAC2C500344007 /* LocalizedStrings.swift in Sources */,
 				E082670A23AA9E0800344007 /* AppDelegate.swift in Sources */,
