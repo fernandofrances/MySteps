@@ -21,15 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AppearanceManager.configureAppearance()
         
+        
         let user = User(name: "Neil Armstrong", image: "profile-photo", totalSteps: 0)
-        CoreDataManager.createUserData(user)
+        let homeAssembly = HomeAssembly()
+        let homeViewController = homeAssembly.viewController(user: user)
+        let navigationController = UINavigationController(rootViewController: homeViewController)
         
-        let healthKitManager = HealthKitManager()
-        let homePresenter = HomePresenter(healthManager: healthKitManager, user: user)
-        let mainViewController = HomeViewController(presenter: homePresenter)
-        let navigationController = UINavigationController(rootViewController: mainViewController)
-        
-        
+    
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
