@@ -30,7 +30,9 @@ class HomePresenter {
     private let daysToShow: Int = 30
     
     
-    init(healthManager: HealthKitManager, user: User) {
+    init(healthManager: HealthKitManager,
+         repository: HomeRepository,
+         user: User) {
         self.healthManager = healthManager
         self.user = user
     }
