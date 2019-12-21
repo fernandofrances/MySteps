@@ -18,7 +18,7 @@ final class HomeAssembly {
         return HomePresenter(repository: repository(), user: user)
     }
     
-    private func repository() -> HomeRepositoryProtocol {
+    private func repository() -> HomeRepository{
         return HomeRepository(dataManager: CoreDataManager(), healthManager: HealthKitManager())
     }
 }

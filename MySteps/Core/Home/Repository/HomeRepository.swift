@@ -8,27 +8,14 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
-protocol HomeRepositoryProtocol {
-    
-    // Persistance
-    func createUserInPersistanceStore(_ user: User)
-    func updateUserStepsInPersistanceStore(_ steps: Double)
-    func getUserStepsFromPersistanceStore() -> Double
-    
-    // Health Kit
-    
-    func loadStepData() -> Observable<[PointEntry]>
-    func loadDummyStepData() -> Observable<[PointEntry]>
-    
-    func dateIntervals() -> [DateInterval]
-
-}
-
-final class HomeRepository: HomeRepositoryProtocol {
+final class HomeRepository: ReactiveCompatible {
     
     let dataManager: CoreDataManager
     let healthManager: HealthKitManager
+    
+    fileprivate var stepCount = BehaviorRelay<Double>(value: 0)
     
     private lazy var calendar: Calendar = { return Calendar.current }()
     
@@ -43,9 +30,10 @@ final class HomeRepository: HomeRepositoryProtocol {
      
      func updateUserStepsInPersistanceStore(_ steps: Double) {
         dataManager.updateUserSteps(steps)
+        stepCount.accept(getUserStepsFromPersistanceStore())
      }
      
-     func getUserStepsFromPersistanceStore() -> Double {
+     private func getUserStepsFromPersistanceStore() -> Double {
          return dataManager.getUserSteps()
      }
     
@@ -75,41 +63,10 @@ final class HomeRepository: HomeRepositoryProtocol {
         .reversed()
      }
     
-    func loadDummyStepData() -> Observable<[PointEntry]> {
-        let pointEntries: [PointEntry] = [
-            PointEntry(value: 0, label: "1"),
-            PointEntry(value: 500, label: "2"),
-            PointEntry(value: 2030, label: "3"),
-            PointEntry(value: 5000, label: "4"),
-            PointEntry(value: 5000, label: "5"),
-            PointEntry(value: 7000, label: "6"),
-            PointEntry(value: 0, label: "7"),
-            PointEntry(value: 1002, label: "8"),
-            PointEntry(value: 200, label: "9"),
-            PointEntry(value: 300, label: "10"),
-            PointEntry(value: 10000, label: "11"),
-            PointEntry(value: 9000, label: "12"),
-            PointEntry(value: 9003, label: "13"),
-            PointEntry(value: 700, label: "14"),
-            PointEntry(value: 200, label: "15"),
-            PointEntry(value: 4002, label: "16"),
-            PointEntry(value: 200, label: "17"),
-            PointEntry(value: 500, label: "18"),
-            PointEntry(value: 32223, label: "19"),
-            PointEntry(value: 700, label: "20"),
-            PointEntry(value: 200, label: "21"),
-            PointEntry(value: 300, label: "22"),
-            PointEntry(value: 200, label: "23"),
-            PointEntry(value: 500, label: "24"),
-            PointEntry(value: 600, label: "25"),
-            PointEntry(value: 0, label: "26"),
-            PointEntry(value: 200, label: "27"),
-            PointEntry(value: 300, label: "28"),
-            PointEntry(value: 0, label: "29"),
-            PointEntry(value: 500, label: "30")]
-        
-        if !healthManager.authorized { return Observable.error(RxError.unknown) }
-        return Observable.of(pointEntries)
+}
+
+extension Reactive where Base: HomeRepository {
+    var stepCount: Observable<Double> {
+        return base.stepCount.asObservable()
     }
-    
 }

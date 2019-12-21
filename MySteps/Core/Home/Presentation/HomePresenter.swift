@@ -16,20 +16,21 @@ protocol HomeView: class {
     func updateHeader(with user: User, dateInterval: DateInterval)
     func updateChart(with points: [PointEntry])
     func updateAchievements(with achievements: [Achievement])
+    func updateStepCount(_ steps: Double)
 }
 
 class HomePresenter {
     
     
     weak var view: HomeView?
-    private let repository: HomeRepositoryProtocol
+    private let repository: HomeRepository
     private let user: User
     
     private let disposeBag = DisposeBag()
     private let daysToShow: Int = 30
     
     
-    init(repository: HomeRepositoryProtocol, user: User) {
+    init(repository: HomeRepository, user: User) {
         self.repository = repository
         self.user = user
     }
@@ -37,10 +38,18 @@ class HomePresenter {
     
     func didLoad() {
         repository.createUserInPersistanceStore(user)
+        rxBind()
         configureHeader()
         //configureDummyChart()
         configureChart()
         configureAchievements()
+    }
+    
+    func rxBind() {
+        repository.rx.stepCount.subscribe(onNext: { [weak self] count in
+            guard let `self` = self else {  return }
+            self.view?.updateStepCount(count)
+        }).disposed(by: disposeBag)
     }
     
     private func configureChart() {
