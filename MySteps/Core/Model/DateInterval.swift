@@ -14,7 +14,7 @@ struct DateInterval {
     
     var description: String {
        let formatter = DateFormatter()
-       formatter.dateFormat = "MMM dd"
+       formatter.dateFormat = "MMM d"
        let startDateString = formatter.string(from: startDate)
        let endDateString = formatter.string(from: endDate)
        
