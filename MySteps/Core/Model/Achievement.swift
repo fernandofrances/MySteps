@@ -7,19 +7,16 @@
 //
 
 import Foundation
+import RxDataSources
 
-//struct Achievement {
-//    let icon: String?
-//    let steps: Double
-//
-//    init(steps: Double) {
-//        self.steps = steps
-//        self.icon = nil
-//    }
-//}
-
-
-enum Achievement: Double {
+enum Achievement: Double, IdentifiableType {
+    
+    typealias Identity = String
+    
+    var identity: String {
+        return String(self.rawValue)
+    }
+    
     case tenK = 10000
     case fithfteenK = 15000
     case twentyK = 20000

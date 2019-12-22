@@ -21,7 +21,7 @@ struct DateInterval {
        formatter.dateFormat = "yyyy"
        let year = formatter.string(from: endDate)
        
-       return  "\(startDateString) \(endDateString) \(year)"
+       return  "\(startDateString)-\(endDateString) \(year)"
     }
 }
 

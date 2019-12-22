@@ -28,6 +28,7 @@ final class AchievementsViewLayout: UICollectionViewFlowLayout {
         itemSize = Constants.itemSize
         minimumLineSpacing = Constants.minimumLineSpacing
         sectionInset = Constants.sectionInset
+    
     }
     
 }
