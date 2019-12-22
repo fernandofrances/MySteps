@@ -23,19 +23,19 @@ final class HeaderView: UIView, NibLoadableView {
     @IBOutlet weak var dateIntervalLabel: UILabel!
     @IBOutlet weak var stepCountLabel: UILabel!
     
-    func configure(with user: User, dateInterval: DateInterval) {
+    func configure(with user: User, timePeriod: TimePeriod) {
         imageView.image = UIImage(named: user.image)
         stepCountLabel.text = String(user.totalSteps)
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM dd"
-        let startDateString = formatter.string(from: dateInterval.startDate)
-        let endDateString = formatter.string(from: dateInterval.endDate)
-        
-        formatter.dateFormat = "yyyy"
-        let year = formatter.string(from: dateInterval.endDate)
-        
-        dateIntervalLabel.text = "\(startDateString) \(endDateString) \(year)"
+        updateTimePeriodLabel(timePeriod)
+     
     }
+    
+    func updateTimePeriodLabel(_ timePeriod: TimePeriod) {
+        guard let start = timePeriod.dateIntervals.first?.startDate,
+                 let end = timePeriod.dateIntervals.last?.startDate else { return }
+             let interval = DateInterval(startDate: start, endDate: end)
+             dateIntervalLabel.text = interval.description
+    }
+ 
     
 }

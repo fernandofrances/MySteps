@@ -10,4 +10,6 @@
 "headerTitle" = "Steps";
 "achievementsSectionTitle" = "Achievements";
 "achievementItemTitle" = "Goal achievement";
+"noAchievementsTitle" = "No achievements yet";
+"noAchievementsSubtitle" = "Keep walking!";
 

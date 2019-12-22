@@ -37,38 +37,28 @@ final class HomeRepository: ReactiveCompatible {
          return dataManager.getUserSteps()
      }
     
-    func loadStepData() -> Observable<([PointEntry], Double)> {
+    func loadStepData(timePeriod: TimePeriod) -> Observable<([PointEntry], Double)> {
+        
        if !healthManager.authorized { return Observable.error(RxError.unknown) }
        return healthManager.requestPermission()
        .flatMap { [weak self] granted -> Observable<[StepsData]> in
             guard let `self` = self, granted else { return Observable.error(RxError.unknown) }
-            return self.healthManager.getSteps(for: self.dateIntervals())
+            return self.healthManager.getSteps(for: timePeriod.dateIntervals)
        }
        .map { stepData in
-        let pointEntries = stepData.map { step in
-            return PointEntry(value: Int(step.stepCount),
-                              label: String(self.calendar.component(.day,from: step.day)))
-        }
-        
-        let totalStepCount = pointEntries.reduce(0) { result, point in
-            return result + Double(point.value)
-        }
-        
-        return (pointEntries, totalStepCount)
-        
+            let pointEntries = stepData.map { step in
+                return PointEntry(value: Int(step.stepCount),
+                                  label: String(self.calendar.component(.day,from: step.day)))
+            }
+            
+            let totalStepCount = pointEntries.reduce(0) { result, point in
+                return result + Double(point.value)
+            }
+            
+            return (pointEntries, totalStepCount)
        }
       
     }
-    
-    func dateIntervals() -> [DateInterval] {
-        return Array(0...30)
-        .compactMap {
-            let day = self.calendar.date(byAdding: .day, value: -$0, to: Date())
-            guard let startOfDay = day?.startOfDay, let endOfDay = day?.endOfDay else { return nil }
-            return DateInterval(startDate: startOfDay, endDate: endOfDay)
-        }
-        .reversed()
-     }
     
 }
 

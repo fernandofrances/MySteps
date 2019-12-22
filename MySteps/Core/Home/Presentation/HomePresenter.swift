@@ -13,9 +13,10 @@ protocol HomeView: class {
     
     var title: String? { get set }
     
-    func addHeader(with user: User, dateInterval: DateInterval)
+    func addHeader(with user: User, timePeriod: TimePeriod)
     func updateStepCountView(_ steps: Double)
     func updateStepDataViews(with points: [PointEntry], achievements: [Achievement])
+    func updateTimePeriodView(with timePeriod: TimePeriod)
 }
 
 class HomePresenter {
@@ -25,8 +26,8 @@ class HomePresenter {
     private let repository: HomeRepository
     private let user: User
     
-    private let disposeBag = DisposeBag()
-    private let daysToShow: Int = 30
+    let disposeBag = DisposeBag()
+    private var timePeriod: TimePeriod = .currentMonth
     
     
     init(repository: HomeRepository, user: User) {
@@ -42,7 +43,18 @@ class HomePresenter {
         loadData()
     }
     
-    func rxBind() {
+    func switchTimePeriodMode() {
+        switch timePeriod {
+        case .lastThirtyDays:
+            timePeriod = .currentMonth
+        case .currentMonth:
+            timePeriod = .lastThirtyDays
+        }
+        self.view?.updateTimePeriodView(with: timePeriod)
+        loadData()
+    }
+    
+    private func rxBind() {
         repository.rx.stepCount.subscribe(onNext: { [weak self] count in
             guard let `self` = self else {  return }
             self.view?.updateStepCountView(count)
@@ -50,7 +62,7 @@ class HomePresenter {
     }
     
     private func loadData() {
-        repository.loadStepData()
+        repository.loadStepData(timePeriod: timePeriod)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] (pointEntries, totalStepCount) in
                 guard let `self` = self else { return }
@@ -63,10 +75,7 @@ class HomePresenter {
     
     private func configureHeader() {
         view?.title = user.name
-        let dates = repository.dateIntervals()
-        guard let start = dates.first?.startDate, let end = dates.last?.startDate else { return }
-        let interval = DateInterval(startDate: start, endDate: end)
-        view?.addHeader(with: user, dateInterval: interval)
+        view?.addHeader(with: user, timePeriod: timePeriod)
     }
     
     private func achievements(_ stepCount: Double) -> [Achievement] {

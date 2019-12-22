@@ -13,6 +13,8 @@ enum Strings: String {
     case headerTitle
     case achievementsSectionTitle
     case achievementItemTitle
+    case noAchievementsTitle
+    case noAchievementsSubtitle
     
     
     var localized: String {

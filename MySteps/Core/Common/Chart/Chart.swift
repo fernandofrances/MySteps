@@ -133,7 +133,7 @@ class Chart: UIView {
                 let indexGap = dataEntries.count / maxNumberOfColumns
                 var i = 0
                 var n = 0
-                while (n < maxNumberOfColumns && i <= dataEntries.count) {
+                while (n < maxNumberOfColumns && i < dataEntries.count) {
                     let textLayer = CATextLayer()
                     textLayer.frame = CGRect(x: columnSpace*CGFloat(n) + 24, y: mainLayer.frame.size.height - bottomSpace/2 - 4, width: columnSpace, height: 16)
                     textLayer.foregroundColor = UIColor.chartTextColor.cgColor

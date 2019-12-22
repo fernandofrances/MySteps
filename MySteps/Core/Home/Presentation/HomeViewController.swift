@@ -38,10 +38,10 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: HomeView {
     
-    func addHeader(with user: User, dateInterval: DateInterval) {
-         let header = HeaderView.instantiate()
-         header.configure(with: user, dateInterval: dateInterval)
-         stackView.addArrangedSubview(header)
+    func addHeader(with user: User, timePeriod: TimePeriod) {
+        let header = HeaderView.instantiate()
+        header.configure(with: user, timePeriod: timePeriod)
+        stackView.addArrangedSubview(header)
      }
     
     func updateStepDataViews(with points: [PointEntry], achievements: [Achievement]) {
@@ -51,11 +51,21 @@ extension HomeViewController: HomeView {
         
         let stepsChart = StepsView.instantiate()
         stepsChart.configure(with: points)
+        stepsChart.tap.subscribe(onNext: { [weak self] in
+            guard let `self` = self else { return }
+            self.presenter.switchTimePeriodMode()
+        }).disposed(by: presenter.disposeBag)
         stackView.addArrangedSubview(stepsChart)
         
-        let achievementsView = AchievementsView.instantiate()
-        achievementsView.items = achievements
-        stackView.addArrangedSubview(achievementsView)
+        if achievements.count == 0 {
+            let noAchievementsView = NoAchievementsView.instantiate()
+            stackView.addArrangedSubview(noAchievementsView)
+        } else {
+            let achievementsView = AchievementsView.instantiate()
+            achievementsView.items = achievements
+            stackView.addArrangedSubview(achievementsView)
+        }
+        
         
     }
     
@@ -64,6 +74,10 @@ extension HomeViewController: HomeView {
         header.stepCountLabel.text = steps.stringWithThousendSeparator
     }
     
+    func updateTimePeriodView(with timePeriod: TimePeriod) {
+        guard let header = stackView.arrangedSubviews.first(where: { $0.isKind(of: HeaderView.self )}) as? HeaderView else { return }
+        header.updateTimePeriodLabel(timePeriod)
+    }
  
     
 }
