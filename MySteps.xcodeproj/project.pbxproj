@@ -307,9 +307,9 @@
 				E082674B23AAB8AB00344007 /* StepsView.xib */,
 				E082674D23AAB8D800344007 /* AchievementsView.swift */,
 				E082674F23AAB8E200344007 /* AchievementsView.xib */,
-				E07F433323AF8F0A003E1949 /* AchievementsViewLayout.swift */,
 				E07F433523AF901B003E1949 /* AchievementCell.swift */,
 				E07F433623AF901B003E1949 /* AchievementCell.xib */,
+				E07F433323AF8F0A003E1949 /* AchievementsViewLayout.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";

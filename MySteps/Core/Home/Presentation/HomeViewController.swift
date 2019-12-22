@@ -37,29 +37,33 @@ class HomeViewController: UIViewController {
 
 
 extension HomeViewController: HomeView {
-    func updateStepCount(_ steps: Double) {
+    
+    func addHeader(with user: User, dateInterval: DateInterval) {
+         let header = HeaderView.instantiate()
+         header.configure(with: user, dateInterval: dateInterval)
+         stackView.addArrangedSubview(header)
+     }
+    
+    func updateStepDataViews(with points: [PointEntry], achievements: [Achievement]) {
+        stackView.arrangedSubviews.forEach {
+            if !$0.isKind(of: HeaderView.self) { $0.removeFromSuperview() }
+        }
+        
+        let stepsChart = StepsView.instantiate()
+        stepsChart.configure(with: points)
+        stackView.addArrangedSubview(stepsChart)
+        
+        let achievementsView = AchievementsView.instantiate()
+        achievementsView.items = achievements
+        stackView.addArrangedSubview(achievementsView)
+        
+    }
+    
+    func updateStepCountView(_ steps: Double) {
         guard let header = stackView.arrangedSubviews.first(where: { $0.isKind(of: HeaderView.self )}) as? HeaderView else { return }
         header.stepCountLabel.text = steps.stringWithThousendSeparator
     }
     
-    func updateHeader(with user: User, dateInterval: DateInterval) {
-        let header = HeaderView.instantiate()
-        header.configure(with: user, dateInterval: dateInterval)
-        stackView.addArrangedSubview(header)
-    }
-    
-    func updateChart(with points: [PointEntry]) {
-        stackView.arrangedSubviews.first(where: { $0.isKind(of: StepsView.self) })?.removeFromSuperview()
-        let stepsChart = StepsView.instantiate()
-        stepsChart.configure(with: points)
-        stackView.addArrangedSubview(stepsChart)
-    }
-    
-    func updateAchievements(with achievements: [Achievement]) {
-        let achievementsView = AchievementsView.instantiate()
-        achievementsView.items = achievements
-        stackView.addArrangedSubview(achievementsView)
-    }
-    
+ 
     
 }

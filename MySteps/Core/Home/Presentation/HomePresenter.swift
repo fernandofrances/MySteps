@@ -13,10 +13,9 @@ protocol HomeView: class {
     
     var title: String? { get set }
     
-    func updateHeader(with user: User, dateInterval: DateInterval)
-    func updateChart(with points: [PointEntry])
-    func updateAchievements(with achievements: [Achievement])
-    func updateStepCount(_ steps: Double)
+    func addHeader(with user: User, dateInterval: DateInterval)
+    func updateStepCountView(_ steps: Double)
+    func updateStepDataViews(with points: [PointEntry], achievements: [Achievement])
 }
 
 class HomePresenter {
@@ -46,7 +45,7 @@ class HomePresenter {
     func rxBind() {
         repository.rx.stepCount.subscribe(onNext: { [weak self] count in
             guard let `self` = self else {  return }
-            self.view?.updateStepCount(count)
+            self.view?.updateStepCountView(count)
         }).disposed(by: disposeBag)
     }
     
@@ -56,8 +55,7 @@ class HomePresenter {
             .subscribe(onNext: { [weak self] (pointEntries, totalStepCount) in
                 guard let `self` = self else { return }
                 self.repository.updateUserStepsInPersistanceStore(totalStepCount)
-                self.configureChart(pointEntries)
-                self.configureAchievements(totalStepCount)
+                self.view?.updateStepDataViews(with: pointEntries, achievements: self.achievements(totalStepCount))
             }, onError: { error in
                     // Handle error
             }).disposed(by: disposeBag)
@@ -68,14 +66,10 @@ class HomePresenter {
         let dates = repository.dateIntervals()
         guard let start = dates.first?.startDate, let end = dates.last?.startDate else { return }
         let interval = DateInterval(startDate: start, endDate: end)
-        view?.updateHeader(with: user, dateInterval: interval)
+        view?.addHeader(with: user, dateInterval: interval)
     }
     
-    private func configureChart(_ pointEntries: [PointEntry]) {
-        self.view?.updateChart(with: pointEntries)
-    }
-    
-    private func configureAchievements(_ stepCount: Double) {
+    private func achievements(_ stepCount: Double) -> [Achievement] {
         let gap = 5000
         var i = 10000
         var achievements: [Achievement?] = []
@@ -83,9 +77,8 @@ class HomePresenter {
             achievements.append(Achievement(rawValue: Double(i)))
             i += gap
         }
-        view?.updateAchievements(with: achievements.compactMap( { $0 }))
+        return achievements.compactMap { $0 }
     }
-  
     
 }
 
