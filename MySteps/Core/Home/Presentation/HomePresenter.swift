@@ -47,7 +47,7 @@ class HomePresenter {
     func rxBind() {
         repository.rx.stepCount.subscribe(onNext: { [weak self] count in
             guard let `self` = self else {  return }
-            self.view?.updateStepCount(count)
+            self.view?.updateStepCount(count.stringWithThousendSeparator)
         }).disposed(by: disposeBag)
     }
     

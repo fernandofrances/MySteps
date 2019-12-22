@@ -36,6 +36,7 @@
 		E082675623AAC22600344007 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E082675523AAC22600344007 /* Localizable.strings */; };
 		E082675823AAC2C500344007 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082675723AAC2C500344007 /* LocalizedStrings.swift */; };
 		E082675B23AAE26600344007 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082675A23AAE26600344007 /* Chart.swift */; };
+		E095EF7C23AF8933005F7194 /* Double+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E095EF7B23AF8933005F7194 /* Double+Formatter.swift */; };
 		E0BA8F0423AEA65C00F87548 /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BA8F0323AEA65C00F87548 /* HomeAssembly.swift */; };
 		E0D0E54223AE93580040A82A /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D0E54123AE93580040A82A /* AppearanceManager.swift */; };
 		E0D0E58423AE9AE50040A82A /* MySteps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E0D0E58223AE9AE50040A82A /* MySteps.xcdatamodeld */; };
@@ -102,6 +103,7 @@
 		E082675523AAC22600344007 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		E082675723AAC2C500344007 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		E082675A23AAE26600344007 /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
+		E095EF7B23AF8933005F7194 /* Double+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Formatter.swift"; sourceTree = "<group>"; };
 		E0BA8F0323AEA65C00F87548 /* HomeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssembly.swift; sourceTree = "<group>"; };
 		E0D0E54123AE93580040A82A /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		E0D0E58323AE9AE50040A82A /* MySteps.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MySteps.xcdatamodel; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				E082675723AAC2C500344007 /* LocalizedStrings.swift */,
 				E01736B023AD46B1003C65AB /* UIColor+Custom.swift */,
 				E01736B923AD6CD4003C65AB /* Date+Calendar.swift */,
+				E095EF7B23AF8933005F7194 /* Double+Formatter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 		E0BA8F0123AEA64600F87548 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				E01736B223AD5F7A003C65AB /* HomePresenter.swift */,
 				E082673C23AAA8DA00344007 /* HomeViewController.swift */,
 				E082673D23AAA8DA00344007 /* HomeViewController.xib */,
 				E082674523AAB88100344007 /* HeaderView.swift */,
@@ -294,7 +298,6 @@
 				E082674B23AAB8AB00344007 /* StepsView.xib */,
 				E082674D23AAB8D800344007 /* AchievementsView.swift */,
 				E082674F23AAB8E200344007 /* AchievementsView.xib */,
-				E01736B223AD5F7A003C65AB /* HomePresenter.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				E01736B823AD60D7003C65AB /* User.swift in Sources */,
 				E082673E23AAA8DA00344007 /* HomeViewController.swift in Sources */,
 				E01736B623AD5FD5003C65AB /* Achievement.swift in Sources */,
+				E095EF7C23AF8933005F7194 /* Double+Formatter.swift in Sources */,
 				E01736B323AD5F7A003C65AB /* HomePresenter.swift in Sources */,
 				E082673B23AAA46200344007 /* HealthKitManager.swift in Sources */,
 				E0D0E58423AE9AE50040A82A /* MySteps.xcdatamodeld in Sources */,
