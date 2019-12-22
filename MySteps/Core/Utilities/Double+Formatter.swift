@@ -9,11 +9,20 @@
 import Foundation
 
 extension Double {
-    var stringWithThousendSeparator: Double {
+    var stringWithThousendSeparator: String? {
         let formatter = NumberFormatter()
         formatter.groupingSeparator = "."
         formatter.numberStyle = .decimal
-        let number = NSNumber(value: self)
-        formatter.string(from: number)
+        let number = NSNumber(value: Int(self))
+        return formatter.string(from: number)
+    }
+    
+    var stringWithKForThousends: String? {
+        if !(self > 1000) { return nil }
+        var numberString = String(Int(self))
+        for _ in 0...2 {
+            numberString.removeLast()
+        }
+        return numberString + "K"
     }
 }

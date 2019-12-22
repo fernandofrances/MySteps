@@ -39,7 +39,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: HomeView {
     func updateStepCount(_ steps: Double) {
         guard let header = stackView.arrangedSubviews.first(where: { $0.isKind(of: HeaderView.self )}) as? HeaderView else { return }
-        header.stepCountLabel.text = String(Int(steps))
+        header.stepCountLabel.text = steps.stringWithThousendSeparator
     }
     
     func updateHeader(with user: User, dateInterval: DateInterval) {
@@ -56,7 +56,9 @@ extension HomeViewController: HomeView {
     }
     
     func updateAchievements(with achievements: [Achievement]) {
-        //
+        let achievementsView = AchievementsView.instantiate()
+        achievementsView.items = achievements
+        stackView.addArrangedSubview(achievementsView)
     }
     
     

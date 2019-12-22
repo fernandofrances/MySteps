@@ -40,31 +40,28 @@ class HomePresenter {
         repository.createUserInPersistanceStore(user)
         rxBind()
         configureHeader()
-        configureChart()
-        configureAchievements()
+        loadData()
     }
     
     func rxBind() {
         repository.rx.stepCount.subscribe(onNext: { [weak self] count in
             guard let `self` = self else {  return }
-            self.view?.updateStepCount(count.stringWithThousendSeparator)
+            self.view?.updateStepCount(count)
         }).disposed(by: disposeBag)
     }
     
-    private func configureChart() {
+    private func loadData() {
         repository.loadStepData()
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] pointEntries in
+            .subscribe(onNext: { [weak self] (pointEntries, totalStepCount) in
                 guard let `self` = self else { return }
-                self.repository.updateUserStepsInPersistanceStore(pointEntries.reduce(0) { result, point in
-                    return result + Double(point.value)
-                })
-                self.view?.updateChart(with: pointEntries)
+                self.repository.updateUserStepsInPersistanceStore(totalStepCount)
+                self.configureChart(pointEntries)
+                self.configureAchievements(totalStepCount)
             }, onError: { error in
-                // Handle error
+                    // Handle error
             }).disposed(by: disposeBag)
     }
-
     
     private func configureHeader() {
         view?.title = user.name
@@ -74,8 +71,21 @@ class HomePresenter {
         view?.updateHeader(with: user, dateInterval: interval)
     }
     
-    private func configureAchievements() {
-        view?.updateAchievements(with: [])
+    private func configureChart(_ pointEntries: [PointEntry]) {
+        self.view?.updateChart(with: pointEntries)
     }
+    
+    private func configureAchievements(_ stepCount: Double) {
+        let gap = 5000
+        var i = 10000
+        var achievements: [Achievement?] = []
+        while Int(stepCount) >= i {
+            achievements.append(Achievement(rawValue: Double(i)))
+            i += gap
+        }
+        view?.updateAchievements(with: achievements.compactMap( { $0 }))
+    }
+  
+    
 }
 

@@ -37,7 +37,7 @@ final class HomeRepository: ReactiveCompatible {
          return dataManager.getUserSteps()
      }
     
-    func loadStepData() -> Observable<[PointEntry]> {
+    func loadStepData() -> Observable<([PointEntry], Double)> {
        if !healthManager.authorized { return Observable.error(RxError.unknown) }
        return healthManager.requestPermission()
        .flatMap { [weak self] granted -> Observable<[StepsData]> in
@@ -45,10 +45,17 @@ final class HomeRepository: ReactiveCompatible {
             return self.healthManager.getSteps(for: self.dateIntervals())
        }
        .map { stepData in
-        return stepData.map { step in
+        let pointEntries = stepData.map { step in
             return PointEntry(value: Int(step.stepCount),
                               label: String(self.calendar.component(.day,from: step.day)))
         }
+        
+        let totalStepCount = pointEntries.reduce(0) { result, point in
+            return result + Double(point.value)
+        }
+        
+        return (pointEntries, totalStepCount)
+        
        }
       
     }

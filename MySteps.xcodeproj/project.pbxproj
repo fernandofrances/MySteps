@@ -16,6 +16,10 @@
 		E01736BA23AD6CD4003C65AB /* Date+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01736B923AD6CD4003C65AB /* Date+Calendar.swift */; };
 		E01736BC23AE7BD2003C65AB /* DateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01736BB23AE7BD2003C65AB /* DateInterval.swift */; };
 		E01736BE23AE7BFF003C65AB /* StepsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01736BD23AE7BFF003C65AB /* StepsData.swift */; };
+		E07F433423AF8F0A003E1949 /* AchievementsViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07F433323AF8F0A003E1949 /* AchievementsViewLayout.swift */; };
+		E07F433723AF901B003E1949 /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07F433523AF901B003E1949 /* AchievementCell.swift */; };
+		E07F433823AF901B003E1949 /* AchievementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E07F433623AF901B003E1949 /* AchievementCell.xib */; };
+		E07F433A23AF9432003E1949 /* UICollectionView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07F433923AF9432003E1949 /* UICollectionView+Reusable.swift */; };
 		E082670A23AA9E0800344007 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082670923AA9E0800344007 /* AppDelegate.swift */; };
 		E082671123AA9E0900344007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E082671023AA9E0900344007 /* Assets.xcassets */; };
 		E082671423AA9E0900344007 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E082671223AA9E0900344007 /* LaunchScreen.storyboard */; };
@@ -76,6 +80,10 @@
 		E01736B923AD6CD4003C65AB /* Date+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Calendar.swift"; sourceTree = "<group>"; };
 		E01736BB23AE7BD2003C65AB /* DateInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInterval.swift; sourceTree = "<group>"; };
 		E01736BD23AE7BFF003C65AB /* StepsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsData.swift; sourceTree = "<group>"; };
+		E07F433323AF8F0A003E1949 /* AchievementsViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewLayout.swift; sourceTree = "<group>"; };
+		E07F433523AF901B003E1949 /* AchievementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
+		E07F433623AF901B003E1949 /* AchievementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchievementCell.xib; sourceTree = "<group>"; };
+		E07F433923AF9432003E1949 /* UICollectionView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Reusable.swift"; sourceTree = "<group>"; };
 		E082670623AA9E0800344007 /* MySteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E082670923AA9E0800344007 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E082671023AA9E0900344007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -253,6 +261,7 @@
 				E01736B023AD46B1003C65AB /* UIColor+Custom.swift */,
 				E01736B923AD6CD4003C65AB /* Date+Calendar.swift */,
 				E095EF7B23AF8933005F7194 /* Double+Formatter.swift */,
+				E07F433923AF9432003E1949 /* UICollectionView+Reusable.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -298,6 +307,9 @@
 				E082674B23AAB8AB00344007 /* StepsView.xib */,
 				E082674D23AAB8D800344007 /* AchievementsView.swift */,
 				E082674F23AAB8E200344007 /* AchievementsView.xib */,
+				E07F433323AF8F0A003E1949 /* AchievementsViewLayout.swift */,
+				E07F433523AF901B003E1949 /* AchievementCell.swift */,
+				E07F433623AF901B003E1949 /* AchievementCell.xib */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -394,6 +406,7 @@
 				TargetAttributes = {
 					E082670523AA9E0800344007 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -440,6 +453,7 @@
 				E082674C23AAB8AB00344007 /* StepsView.xib in Resources */,
 				E082675623AAC22600344007 /* Localizable.strings in Resources */,
 				E082671123AA9E0900344007 /* Assets.xcassets in Resources */,
+				E07F433823AF901B003E1949 /* AchievementCell.xib in Resources */,
 				E082675023AAB8E200344007 /* AchievementsView.xib in Resources */,
 				E082674823AAB88B00344007 /* HeaderView.xib in Resources */,
 			);
@@ -575,11 +589,13 @@
 				E01736BA23AD6CD4003C65AB /* Date+Calendar.swift in Sources */,
 				E082674623AAB88100344007 /* HeaderView.swift in Sources */,
 				E01736B123AD46B1003C65AB /* UIColor+Custom.swift in Sources */,
+				E07F433A23AF9432003E1949 /* UICollectionView+Reusable.swift in Sources */,
 				E082674423AAB4B500344007 /* NibLoadableView.swift in Sources */,
 				E082674E23AAB8D800344007 /* AchievementsView.swift in Sources */,
 				E01736BE23AE7BFF003C65AB /* StepsData.swift in Sources */,
 				E0BA8F0423AEA65C00F87548 /* HomeAssembly.swift in Sources */,
 				E0ED4E1023AC062D00CD23B5 /* Curve.swift in Sources */,
+				E07F433723AF901B003E1949 /* AchievementCell.swift in Sources */,
 				E0D0E58A23AE9FED0040A82A /* HomeRepository.swift in Sources */,
 				E082674A23AAB8A200344007 /* StepsView.swift in Sources */,
 				E082675223AABE6900344007 /* UIImageView+Rounded.swift in Sources */,
@@ -591,6 +607,7 @@
 				E01736B323AD5F7A003C65AB /* HomePresenter.swift in Sources */,
 				E082673B23AAA46200344007 /* HealthKitManager.swift in Sources */,
 				E0D0E58423AE9AE50040A82A /* MySteps.xcdatamodeld in Sources */,
+				E07F433423AF8F0A003E1949 /* AchievementsViewLayout.swift in Sources */,
 				E082675823AAC2C500344007 /* LocalizedStrings.swift in Sources */,
 				E082670A23AA9E0800344007 /* AppDelegate.swift in Sources */,
 			);

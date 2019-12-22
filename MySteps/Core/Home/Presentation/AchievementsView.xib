@@ -6,17 +6,65 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AchievementsView" customModule="MySteps" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="265"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="j7m-W8-tJ1">
+                    <rect key="frame" x="24" y="24" width="366" height="29"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Achievements" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdD-RV-X2b">
+                            <rect key="frame" x="0.0" y="0.0" width="168" height="29"/>
+                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DY2-o3-xSf">
+                            <rect key="frame" x="224" y="0.0" width="142" height="29"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                            <color key="textColor" red="0.0" green="0.58039215690000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="pi5-C0-Dk8"/>
+                    </constraints>
+                </stackView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="y0P-Ay-oGd">
+                    <rect key="frame" x="0.0" y="53" width="414" height="212"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="212" id="uHs-Hi-26d"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rgx-FE-huO" customClass="AchievementsViewLayout" customModule="MySteps" customModuleProvider="target">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="j7m-W8-tJ1" secondAttribute="trailing" constant="24" id="3DA-As-zJO"/>
+                <constraint firstItem="y0P-Ay-oGd" firstAttribute="top" secondItem="j7m-W8-tJ1" secondAttribute="bottom" id="3Dn-P0-GBq"/>
+                <constraint firstItem="j7m-W8-tJ1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="57A-XR-Hxh"/>
+                <constraint firstItem="y0P-Ay-oGd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="JJ9-A1-5Ge"/>
+                <constraint firstAttribute="bottom" secondItem="y0P-Ay-oGd" secondAttribute="bottom" id="eGj-L7-2iB"/>
+                <constraint firstAttribute="trailing" secondItem="y0P-Ay-oGd" secondAttribute="trailing" id="i54-nq-ria"/>
+                <constraint firstItem="j7m-W8-tJ1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="ipp-Ei-q1h"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="collectionView" destination="y0P-Ay-oGd" id="o1T-z3-2WD"/>
+                <outlet property="countLabel" destination="DY2-o3-xSf" id="nHp-cg-CG9"/>
+            </connections>
+            <point key="canvasLocation" x="47.826086956521742" y="-102.79017857142857"/>
         </view>
     </objects>
 </document>
