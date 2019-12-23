@@ -26,13 +26,13 @@ final class AchievementsView: UIView, NibLoadableView {
             guard let items = items else { return }
             self.countLabel.text = String(items.count)
             var achievements: [Achievement] = []
-            items.enumerated().forEach { arg in
-                let (index, item) = arg
-                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds((index + 1)*100)) {
-                    achievements.append(item)
-                    self._items.accept(achievements)
-                }
-            }
+            var index = 0
+            let interval = 0.1
+            _ = Observable<Int>.timer(interval, period: interval, scheduler: MainScheduler.instance).take(items.count - 1).subscribe { _ in
+                achievements.append(items[index])
+                self._items.accept(achievements)
+                index += 1
+            }.disposed(by: disposeBag)
         }
     }
     
@@ -50,13 +50,6 @@ final class AchievementsView: UIView, NibLoadableView {
         }
     }
     
-    private var canMoveItemAtIndexPath: RxCollectionViewSectionedAnimatedDataSource<AchievementsSectionModel>.CanMoveItemAtIndexPath {
-        return { _, _ in
-            return false
-        }
-    }
-    
-    
     func configure(items: [Achievement]) {
         self.items = items
     }
@@ -65,14 +58,14 @@ final class AchievementsView: UIView, NibLoadableView {
         super.awakeFromNib()
         
         collectionView.register(AchievementCell.self)
-
-        dataSource = RxCollectionViewSectionedAnimatedDataSource<AchievementsSectionModel>(animationConfiguration: AnimationConfiguration(insertAnimation: .bottom, reloadAnimation: .bottom, deleteAnimation: .fade), configureCell: configureCell, canMoveItemAtIndexPath: canMoveItemAtIndexPath)
-
+        dataSource = RxCollectionViewSectionedAnimatedDataSource<AchievementsSectionModel>(configureCell: configureCell)
 
         _items.asObservable()
             .map {[AchievementsSectionModel(model: "", items: $0)]}
             .bind(to: collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+        
+    
                 
     }
     
