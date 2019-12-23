@@ -29,10 +29,6 @@ class HomeViewController: UIViewController {
         presenter.view = self
         presenter.didLoad()
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
 }
 
 
