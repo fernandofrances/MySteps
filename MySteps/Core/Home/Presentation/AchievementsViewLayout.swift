@@ -33,10 +33,9 @@ final class AchievementsViewLayout: UICollectionViewFlowLayout {
     
     override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         let attrs = super.initialLayoutAttributesForAppearingItem(at: itemIndexPath)
-        guard let collectionView = collectionView else { return attrs }
         attrs?.alpha = 0.0
         let x = CGFloat(itemIndexPath.row) * itemSize.width
-        attrs?.frame = CGRect(x: x, y: 30, width: itemSize.width, height: itemSize.height)
+        attrs?.frame = CGRect(x: x, y: 35, width: itemSize.width, height: itemSize.height)
         
         return attrs
     }

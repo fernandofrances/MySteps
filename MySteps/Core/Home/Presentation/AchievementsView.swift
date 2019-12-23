@@ -16,19 +16,15 @@ final class AchievementsView: UIView, NibLoadableView {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
-//    var items: [Achievement] {
-//        get { return _items.value }
-//        set { _items.accept(newValue) }
-//    }
-    
     var items: [Achievement]? {
         didSet {
             guard let items = items else { return }
             self.countLabel.text = String(items.count)
             var achievements: [Achievement] = []
             var index = 0
-            let interval = 0.1
-            _ = Observable<Int>.timer(interval, period: interval, scheduler: MainScheduler.instance).take(items.count - 1).subscribe { _ in
+            _ = Observable<Int>.timer(0.3, period: 0.08, scheduler: MainScheduler.instance)
+                .take(items.count - 1)
+                .subscribe { _ in
                 achievements.append(items[index])
                 self._items.accept(achievements)
                 index += 1
