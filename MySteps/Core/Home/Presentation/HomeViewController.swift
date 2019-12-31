@@ -47,10 +47,6 @@ extension HomeViewController: HomeView {
         
         let stepsChart = StepsView.instantiate()
         stepsChart.configure(with: points)
-        stepsChart.tap.subscribe(onNext: { [weak self] in
-            guard let `self` = self else { return }
-            self.presenter.switchTimePeriodMode()
-        }).disposed(by: presenter.disposeBag)
         stackView.addArrangedSubview(stepsChart)
         
         if achievements.count == 0 {

@@ -27,8 +27,7 @@ class HomePresenter {
     private let user: User
     
     let disposeBag = DisposeBag()
-    private var timePeriod: TimePeriod = .currentMonth
-    
+    private var timePeriod: TimePeriod = .lastThirtyDays
     
     init(repository: HomeRepository, user: User) {
         self.repository = repository
@@ -40,17 +39,6 @@ class HomePresenter {
         repository.createUserInPersistanceStore(user)
         rxBind()
         configureHeader()
-        loadData()
-    }
-    
-    func switchTimePeriodMode() {
-        switch timePeriod {
-        case .lastThirtyDays:
-            timePeriod = .currentMonth
-        case .currentMonth:
-            timePeriod = .lastThirtyDays
-        }
-        self.view?.updateTimePeriodView(with: timePeriod)
         loadData()
     }
     

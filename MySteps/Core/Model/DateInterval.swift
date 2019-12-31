@@ -28,7 +28,6 @@ struct DateInterval {
 
 enum TimePeriod {
     case lastThirtyDays
-    case currentMonth
 }
 
 extension TimePeriod {
@@ -47,16 +46,7 @@ extension TimePeriod {
                     return dayDateInterval(from: day)
                   }
                   .reversed()
-            
-        case .currentMonth:
-          
-            let todayDayOfMonth = Calendar.current.component(.day, from: Date())
-            return Array(0..<todayDayOfMonth)
-                  .compactMap {
-                    let day = Calendar.current.date(byAdding: .day, value: -$0, to: Date())
-                    return dayDateInterval(from: day)
-                  }
-                  .reversed()
         }
     }
+        
 }
